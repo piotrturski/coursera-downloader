@@ -19,3 +19,10 @@ rename 'use URI::Escape; $_ = uri_unescape $_' *
 #### Limitations:
 
 Won't clean filenames containing `%2F` (`/`).
+
+#### Subpages:
+
+Some courses on main page contain only iframes locations and each iframe contains url of its mp4. In this case use grep to find all iframes locations, store them in a file, log in to coursera and save cookies. This script will save content of all iframes (inlcuding urls of mp4s) to iframes.txt
+```
+wget -i links_from_main_page.txt -O iframes.txt --load-cookies /tmp/cookies.txt 
+```
