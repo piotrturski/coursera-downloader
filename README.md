@@ -15,11 +15,10 @@ To cleanup encoded filenames run
 ```
 rename 'use URI::Escape; $_ = uri_unescape $_' *
 ```
-
-#### Limitations:
-
-Won't clean filenames containing `%2F` (`/`).
-
+It won't clean filenames containing `%2F` (`/`). To replace `/` to, let's say, `_` do:
+```
+rename 'use URI::Escape; $_ = uri_unescape $_; s/\//_/g' *
+```
 #### Subpages:
 
 Some courses on main page contain only iframes locations and each iframe contains url of its mp4. In this case use grep to find all iframes locations, store them in a file, log in to coursera and save cookies. This script will save content of all iframes (inlcuding urls of mp4s) to iframes.txt
