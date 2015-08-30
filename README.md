@@ -10,7 +10,7 @@ Helps download mp4s and pdfs from courses that require log-in.
 1. Save browser cookies as a txt file (in curl acceptable format)
 1. You should have exactly 2 files in a directory: one htm(l) and one txt. In that directory run in bash:
 
-   ```shell
+```shell
 cat *.htm@(l|) | # htm, html \
 grep -oiE "(https://[^\"]*download.mp4[^\"]*)|(https://[^\"]*\.pdf)" | # pdf, mp4 \
 xargs -n 1 -P 8 curl --compressed -sSJOL --cookie *.txt && # cookies in txt \
